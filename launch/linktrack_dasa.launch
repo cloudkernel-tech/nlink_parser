@@ -1,0 +1,17 @@
+<!--This is a launch file for DASA project-->
+<launch>
+    <!--supported DASA vehicle types: uav, rover, flyingrover -->
+    <arg name="vehicle_type" default="uav" />
+    <arg name="tgt_system" default="1" />
+
+    <arg name="port_name" default="/dev/ttyUSB0"/>
+
+    <!-- Change group ns and tgt_system ID accordling-->
+    <group ns="$(arg vehicle_type)$(arg tgt_system)">
+        <node pkg="nlink_parser" type="linktrack" name="linktrack0" output="screen">
+            <param name="port_name" value="$(arg port_name)" />
+            <param name="baud_rate" value="921600" />
+        </node>
+    </group>
+
+</launch>
