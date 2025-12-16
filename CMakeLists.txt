@@ -177,6 +177,12 @@ target_link_libraries(${EXE_NAME}
 add_dependencies(${EXE_NAME} ${PROJECT_NAME}_generate_messages_cpp)
 
 
+## Mark other files for installation (e.g. launch and bag files, etc.)
+
+install(DIRECTORY launch/
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
+)
+
 #############
 ## Testing ##
 #############
