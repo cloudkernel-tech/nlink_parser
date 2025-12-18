@@ -83,7 +83,10 @@ include_directories(
     include
     ${catkin_INCLUDE_DIRS}
     src/utils
+    /usr/local/include
     )
+
+link_directories(/usr/local/lib)
 
 set(nutils "nutils")
 add_library(${nutils}
