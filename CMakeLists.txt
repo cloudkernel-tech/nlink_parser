@@ -185,6 +185,12 @@ install(TARGETS ${LINKTRACK_NAME} ${LINKTRACK_RVIZ_NAME} ${TOFSENSE_NAME} ${TOF_
    RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
+# Mark library for installation
+install(TARGETS ${nutils}
+  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+)
+
 
 ## Mark other files for installation (e.g. launch and bag files, etc.)
 
