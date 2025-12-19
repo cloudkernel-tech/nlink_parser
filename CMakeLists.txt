@@ -147,37 +147,43 @@ target_link_libraries(${TOFSENSE_NAME}
     )
 add_dependencies(${TOFSENSE_NAME} ${PROJECT_NAME}_generate_messages_cpp)
 
-set(EXE_NAME "tofsensem")
-add_executable(${EXE_NAME}
+set(TOF_EXE_NAME "tofsensem")
+add_executable(${TOF_EXE_NAME}
     src/tofsensem/init.cpp
     src/tofsensem/main.cpp
     )
-target_link_libraries(${EXE_NAME}
+target_link_libraries(${TOF_EXE_NAME}
     ${nutils}
     )
-add_dependencies(${EXE_NAME} ${PROJECT_NAME}_generate_messages_cpp)
+add_dependencies(${TOF_EXE_NAME} ${PROJECT_NAME}_generate_messages_cpp)
 
-set(EXE_NAME "linktrack_aoa")
-add_executable(${EXE_NAME}
+set(LINKTRACK_AOA_NAME "linktrack_aoa")
+add_executable(${LINKTRACK_AOA_NAME}
     src/linktrack_aoa/init.cpp
     src/linktrack_aoa/main.cpp
     src/linktrack/protocols.cpp
     )
-target_link_libraries(${EXE_NAME}
+target_link_libraries(${LINKTRACK_AOA_NAME}
 #    ${catkin_LIBRARIES}
     ${nutils}
     )
-add_dependencies(${EXE_NAME} ${PROJECT_NAME}_generate_messages_cpp)
+add_dependencies(${LINKTRACK_AOA_NAME} ${PROJECT_NAME}_generate_messages_cpp)
 
-set(EXE_NAME "iot")
-add_executable(${EXE_NAME}
+set(IOT_EXE_NAME "iot")
+add_executable(${IOT_EXE_NAME}
     src/iot/init.cpp
     src/iot/main.cpp
     )
-target_link_libraries(${EXE_NAME}
+target_link_libraries(${IOT_EXE_NAME}
     ${nutils}
     )
-add_dependencies(${EXE_NAME} ${PROJECT_NAME}_generate_messages_cpp)
+add_dependencies(${IOT_EXE_NAME} ${PROJECT_NAME}_generate_messages_cpp)
+
+## Mark executables for installation
+## See http://docs.ros.org/melodic/api/catkin/html/howto/format1/building_executables.html
+install(TARGETS ${LINKTRACK_NAME} ${LINKTRACK_RVIZ_NAME} ${TOFSENSE_NAME} ${TOF_EXE_NAME} ${LINKTRACK_AOA_NAME} ${IOT_EXE_NAME}
+   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
 
 
 ## Mark other files for installation (e.g. launch and bag files, etc.)
